@@ -1,16 +1,15 @@
 import React from 'react';
-import Story from './Story';
 
-const StoryList = function ({stories, handleSelectChange}) {
+const StoryList = ({stories, handleSelectChange}) => {
 
     const handleChange = (e) => {
         handleSelectChange(e.target.value);
-    }
-
+        console.log(e.target.value);
+    };
 
     const storyNodes = stories.map((story, index) => {
-        return <option key={story.id} index={index}>{story.title}</option>
-    })
+        return <option key={story.id} index={index} value={story.id}>{story.title}</option>
+    });
     
     return (
         <>
@@ -19,8 +18,7 @@ const StoryList = function ({stories, handleSelectChange}) {
             {storyNodes}
          </select>
         </> 
-    )
-}
+    );
+};
 
-
-export default StoryList; 
+export default StoryList;
